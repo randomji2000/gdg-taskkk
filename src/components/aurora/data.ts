@@ -379,9 +379,9 @@ export const RULES: Rule[] = [
     icon: Users,
     rules: [
       {
-        title: "Team size: 2 to 5",
+        title: "Team size: 1 to 4 members",
         detail:
-          "Solo hacking is discouraged — find at least one teammate at the mixer. Teams may not exceed 5 members total. Cross-school and cross-discipline teams are encouraged.",
+          "Teams can be anywhere from a solo hacker up to 4 members total. The first member on your registration is your Team Lead — they're our point of contact before, during, and after the event. Cross-school and cross-discipline teams are encouraged.",
       },
       {
         title: "All code must be written on-site",
@@ -480,10 +480,32 @@ export const STATS = [
   { value: "$15K+", label: "In prizes" },
 ];
 
+// Team registration configuration
+export const MAX_TEAM_SIZE = 4; // including the team lead
+export const MIN_TEAM_SIZE = 1; // solo allowed — lead alone is a valid team
+
+export type TeamRole = {
+  id: string;
+  label: string;
+  hint: string;
+};
+
+export const TEAM_ROLES: TeamRole[] = [
+  { id: "lead", label: "Team Lead", hint: "Captain / PM / Coordinator" },
+  { id: "frontend", label: "Frontend", hint: "React, UI, design systems" },
+  { id: "backend", label: "Backend", hint: "APIs, DB, infra, devops" },
+  { id: "fullstack", label: "Full-stack", hint: "End-to-end builder" },
+  { id: "ml", label: "ML / AI", hint: "Models, data, agents" },
+  { id: "design", label: "Designer", hint: "UI/UX, motion, brand" },
+  { id: "mobile", label: "Mobile", hint: "iOS / Android / RN" },
+  { id: "hardware", label: "Hardware", hint: "Embedded, IoT, robotics" },
+  { id: "other", label: "Other", hint: "Wildcard skill" },
+];
+
 export const FAQ_ITEMS = [
   {
     q: "Do I need to come with a team?",
-    a: "Nope. The Hour 2 Team Mixer is designed for exactly this — show up solo and we'll help you find a crew. About 40% of participants arrive without a team and end up on the winning projects more often than not.",
+    a: "Nope. You can register solo as a 1-person team, or apply with up to 3 teammates (4 total). If you arrive solo and want a crew, the Hour 2 Team Mixer is designed for exactly this — about 40% of participants arrive without a team and end up on the winning projects more often than not.",
   },
   {
     q: "Is there an application or registration fee?",
